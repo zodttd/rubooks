@@ -1,0 +1,66 @@
+"window.toc.title" = "Table of Contents";
+"window.font.title" = "Font";
+"window.font.subtitle" = "Fonts";
+"window.encoding.title" = "Text Encoding";
+"window.encoding.subtitle" = "Available Encodings";
+"window.default_path_reset.title" = "Path Reset";
+"window.about.title" = "About ruBooks";
+"window.preferences.title" = "Preferences";
+
+"button.back" = "Back";
+"button.about" = "About";
+"button.done" = "Done";
+"button.donate" = "Donate";
+"button.ok" = "OK";
+"button.mark_folder_as_unread" = "Mark Current Folder as New";
+"button.mark_all_as_unread" = "Mark All Books as New";
+"button.coming_soon" = "Coming Soon";
+
+"preference.font" = "Font";
+"preference.font_size" = "Font Size";
+"preference.night_mode" = "Night Mode";
+"preference.keep_line_on_scroll" = "Keep Line on Scroll";
+"preference.volume_buttons_scroll" = "Volume Buttons Scroll";
+"preference.split_automatically" = "Split Automatically";
+"preference.auto_scroll_speed" = "Auto-Scroll Speed";
+"preference.auto_hide.navigation_bar" = "Navigation Bar";
+"preference.auto_hide.toolbar" = "Bottom Toolbar";
+"preference.toolbar.chapter_navigation" = "Chapter Navigation";
+"preference.toolbar.page_navigation" = "Page Navigation";
+"preference.toolbar.left_handed" = "Left Handed";
+"preference.toolbar.inverse_navigation" = "Inverse Navigation";
+"preference.toolbar.enlarge_tap_zones" = "Enlarge Tap Zones";
+"preference.encoding.automatic" = "Automatic";
+"preference.encoding" = "Text Encoding";
+"preference.import.smart_conversion" = "'Smart' Conversion";
+"preference.import.render_html_tables" = "Render HTML Tables";
+"preference.import.chapters" = "Chapters";
+"preference.scroll_speed.slow" = "Slow";
+"preference.scroll_speed.fast" = "Fast";
+"preference.scroll_speed.instant" = "Instant";
+
+
+"preference.section.text_display" = "Text Display";
+"preference.section.auto_hide" = "Auto-Hide";
+"preference.section.toolbar_options" = "Toolbar Options";
+"preference.section.file_import" = "File Import";
+"preference.section.scroll_speed" = "Tap-Scroll Speed";
+"preference.section.unread_marks" = "New Books";
+
+"message.about" = "ruBooks version %@,\nby Sergey Makarov.\n\n Based on Books.app by Zachary Brewster-Geisz, Chris Born, Benoit Cerrina, and Zachary Bedell.\n\nhttp://colel.info/rubooks";
+"message.encoding_not_recognized" = "Could not determine text encoding. Try changing the default encoding in Preferences.";
+"message.encoding_incorrent" = "Incorrect text encoding.  Try changing the text encoding settings in Preferences.";
+"message.failed_unzip" = "Failed to unpack the archive";
+"message.default_path_reset" = "The last visited directory was %@.\nCurrent path will be reset to the default one.";
+"message.no_chapters_found" = "No Chapters Found";
+
+
+"not translated text below" = "*************************************************";
+
+"window.colors.title" = "Colors";
+
+"preference.colors" =  "Colors";
+"preference.colors.section.text_day" = "Text / Day";
+"preference.colors.section.background_day" = "Background / Day";
+"preference.colors.section.text_night" = "Text / Night";
+"preference.colors.section.background_night" = "Background / Night";

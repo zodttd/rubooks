@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>info</key>
+		<dict>
+			<key>name</key>
+			<string>__REPOTAG__</string>
+			<key>description</key>
+			<string>colel.info</string>
+			<key>maintainer</key>
+			<string>Sergey Makarov</string>
+			<key>contact</key>
+			<string>sergemakarov@gmail.com</string>
+			<key>url</key>
+			<string>http://colel.info/rubooks</string>
+			<key>category</key>
+			<string>Productivity</string>
+		</dict>
+		<key>packages</key>
+		<array>
+			<dict>
+				<key>bundleIdentifier</key>
+				<string>info.colel.rubooks</string>
+				<key>name</key>
+				<string>ruBooks</string>
+				<key>version</key>
+				<string>__VERSION__</string>
+				<key>location</key>
+				<string>__PKG_URL__</string>
+				<key>size</key>
+				<string>__PKG_SIZE__</string>
+				<key>hash</key>
+				<string>__MD5__</string>
+				<key>description</key>
+				<string>Reader for FB2/HTML/TXT/PDF/DOC/XLS with Russian, English and draft German, Chinese and Japanese interface. Based on Books.app</string>
+				<key>url</key>
+				<string>http://colel.info/rubooks/moreinfo.html</string>
+				<key>author</key>
+				<string>Sergey Makarov</string>
+				<key>restartSpringBoard</key>
+				<true/>
+				<key>scripts</key>
+				<dict>
+					<key>install</key>
+					<array>
+						<array>
+							<string>RemovePath</string>
+							<string>/Applications/ruBooks.app</string>
+						</array>
+						<array>
+							<string>CopyPath</string>
+							<string>ruBooks.app</string>
+							<string>/Applications/ruBooks.app</string>
+						</array>
+					</array>
+					<key>uninstall</key>
+					<array>
+						<array>
+							<string>RemovePath</string>
+							<string>/Applications/ruBooks.app</string>
+						</array>
+					</array>
+				</dict>
+				<key>category</key>
+				<string>Productivity</string>
+				<key>date</key>
+				<string>__RELEASE_DATE__</string>
+			</dict>
+		</array>
+	</dict>
+</plist>

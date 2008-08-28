@@ -1,0 +1,358 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<title>The Pyrite Project: Doc Format Specification</title>
+<style type="text/css">
+
+TT PRE { font-family: monospace; }
+
+body {
+       color: #444;
+       background-color: #fff;
+       font-family: verdana, arial, helvetica, sans-serif;
+       font-size: 12px;
+       margin: 0px 0px 0px 0px;
+       }
+
+div#sitetop {
+              margin: 0px 0px 0px 0px;
+              padding-top: 5px;
+              padding-bottom: 5px;
+              background-color: #eed;
+              color: #444;
+              }
+div#sitetop h1 { font: 28px georgia, times, serif;
+                 padding-left: 15px;
+                 margin-top: 8px;
+                 margin-bottom: 8px;
+                 }
+
+div#sitemenu {
+               text-align: center;
+               padding-top: 2px;
+               padding-bottom: 2px;
+               border-top: 1px solid #444;
+               border-bottom: 1px solid #444;
+               }
+
+div#main {
+           margin-top: 0px;
+           padding-top: 20px;
+           padding-left: 10px;
+           padding-bottom: 20px;
+           border-left: 1px solid #ddd;
+           }
+
+div#menu { float: left;
+           width: 20%;
+           margin-top: 0px;
+           margin-right: 5px;
+           padding-left: 15px;
+           padding-top: 20px;
+           font-size: 10px;
+           }
+div#main p, div#main h1, div#main h2, div#main h3, div#main h4
+{ margin-top: 0px;
+  margin-bottom: 10px;
+  padding: 0px 0px 0px 0px;
+  }
+
+div#main h1 { margin-bottom: 0px;
+              padding-top: 0px;
+              font: bold 18px verdana, arial, helvetica, sans-serif;
+              }
+div#main h2 { margin-bottom: 0px;
+              padding-top: 0px;
+              font: bold 16px verdana, arial, helvetica, sans-serif;
+              border-bottom: 1px solid #444;
+              }
+div#main h3 { margin-bottom: 0px;
+              margin-top: 0px;
+              padding-top: 0px;
+              font: bold 14px verdana, arial, helvetica, sans-serif;
+              }
+
+
+div#menu p, div#menu h1, div#menu h2, div#menu h3, div#menu h4
+{ margin-top: 0px;
+  margin-bottom: 10px;
+  padding: 0px 0px 0px 0px;
+  }
+
+div#menu h3 { margin-bottom: 0px;
+              padding-top: 0px;
+              border-bottom: 1px solid #ccc;
+              font: bold 12px verdana, arial, helvetica, sans-serif;
+              }
+
+a:link, a:visited, a:active { color: #47a;
+                              text-decoration: none;
+                              background-color: transparent;
+                              }
+a:hover { text-decoration: underline;
+          background-color: transparent;
+          }
+
+div#sitebottom {
+                 font-size: 10px;
+                 border-top: 1px solid #ddd;
+                 margin-top: 0px;
+                 text-align: right;
+                 padding-right: 15px;
+                 color: #bbb;
+                 }
+div#sitebottomleft {
+                     float: left;
+                     text-align: left;
+                     width: 49%;
+                     }
+div#sitebottomright {
+                      float: right;
+                      text-align: right;
+                      width: 49%;
+                      }
+div.spacer { clear: both; }
+
+table { border: none;
+        align: center;
+        margin-left: auto;
+        margin-right: auto;
+        border-collapse: collapse;
+        font: 12px verdana, arial, helvetica, sans-serif;
+        }
+table.alt { border-bottom: 1px solid #444;
+            border-top: 1px solid #444;
+            }
+div.centered { text-align: center; }
+div.centered table { margin: 0 auto; text-align: left; }
+td { padding-left: 4px;
+     padding-right: 4px;}
+tr.title { background-color: #444;
+           color: #fff;
+           font: bold 14px verdana, arial, helvetica, sans-serif;
+           }
+tr.titlealt { background-color: #eee;
+              color: #444;
+              border-bottom: 1px solid #444;
+              border-top: 1px solid #444;
+              }
+tr.coltitles { border-bottom: 1px solid #444;
+               font: bold 12px verdana, arial, helvetica, sans-serif;
+               }
+
+div.textad { border: 1px dotted #ccc;
+             margin-top: 20px;
+             background-color: #f0f0f0;
+             padding: 3px 3px 3px 3px;
+           }
+div.textad p { margin-top: 0px;
+               margin-bottom: 0px;
+               padding: 0px 0px 0px 0px;
+               }
+</style>
+
+</head><body>
+<div id="sitetop">
+<h1>The Pyrite Project</h1>
+</div>
+
+<div id="main">
+
+<h1>The Doc Format</h1>
+
+<p> The Doc format is the de facto standard for large text documents
+on the Palm Computing Platform.  It enjoys wide support in both software
+and content, but documentation is sparse.  This document is an attempt
+to describe the Doc format for the edification of programmers who are
+interested in writing Doc-compatible software, and to encourage programmers
+not to break the format in incompatible ways. </p>
+
+<p> This document is totally unofficial, and derived from examination of
+existing Doc files and applications. </p>
+
+<h2>Overview</h2>
+
+<p> A Doc-format e-text is an ordinary PalmPilot database, represented on
+the desktop by a file in the standard .prc/.pdb format.  (Describing that
+format is currently beyond the scope of this document.)  The database is
+divided into three sections, which appear in order:</p>
+
+<ul>
+  <li> A header record
+  </li><li> A series of text records
+  </li><li> A series of bookmark records
+</li></ul>
+
+<p> Note that all values are stored MSB first, as is usual on the PalmPilot. </p>
+
+<h2>The Header Record</h2>
+
+<p> The first record in a Doc database is a header.  Existing Doc creation
+programs create a 16-byte header, with contents as described below; many Doc
+readers extend this record once the database is installed, to hold additional
+reader-specific information. </p>
+
+<table class="alt">
+<tbody><tr class="titlealt"><td colspan="3">Doc Header Format</td></tr>
+<tr><td>version</td><td>2 bytes</td><td>0x0002 if data is compressed, 0x0001 if uncompressed</td></tr>
+<tr><td>spare</td><td>2 bytes</td><td>purpose unknown (set to 0 on creation)</td></tr>
+<tr><td>length</td><td>4 bytes</td><td>total length of text before compression</td></tr>
+<tr><td>records</td><td>2 bytes</td><td>number of text records</td></tr>
+<tr><td>record_size</td><td>2 bytes</td><td>maximum size of each record (usually 4096; see below)</td></tr>
+<tr><td>position</td><td>4 bytes</td><td>currently viewed position in the document</td></tr>
+<tr><td>sizes</td><td>2*records bytes</td><td>record size array</td></tr>
+</tbody></table>
+
+<p> The <i>position</i> field is not used by all readers; some store this
+information elsewhere. </p>
+
+<p> AportisDoc (Reader and Mobile Edition) set <i>spare</i> to 0x0003,
+and overwrite the first two bytes of <i>length</i> with zeros (even if
+the document is more than 64k bytes in length!) upon first opening the
+document. </p>
+
+<p> The <i>sizes</i> array is a list of two-byte unsigned integers giving
+the uncompressed size of each text record, in order.  It is created by some
+readers (AportisDoc, TealDoc, Doc, and possibly others) when the document
+is first opened. </p>
+
+<h2>Text Records</h2>
+
+<p> Following the header record is a series of text records, each one of
+which represents a text block no greater than <i>record_size</i> bytes in
+length.  Most conversion software creates blocks of 4096 bytes (except
+for the last one); the format provides for other block sizes and for
+records of varying lengths, but it is likely that some Doc-handling software
+cannot deal with anything but fixed 4096-byte records.</p>
+
+<p> In a version 1 database, each block of text is simply stored in a
+single record.  In a version 2 database, each block of text is
+individually compressed, making the actual record size somewhat
+smaller -- note that the block size refers to the <i>uncompressed</i>
+size of a text block. </p>
+
+<h2>Compression Algorithm</h2>
+
+<p> Note: The original designer of the Doc compression format, Pat Beirne,
+has reposted one of his
+<a href="http://web.archive.org/web/20040616202956/http://cr945328-a.flfrd1.on.wave.home.com/Programming/PilotDoc.htm">original
+messages</a> describing the algorithm.  If you are curious about why it works
+the way it does, check it out. </p>
+
+<p> Each text block (in a version 2 database) is individually compressed
+using a simple one-pass algorithm.  As I am far from an expert in compression
+algorithm design, I shall simply describe what the data looks like and refer
+anyone interested in more details to the code (which is readily available in
+a variety of places, such as in the source to
+<a href="http://web.archive.org/web/20040616202956/ftp://shell13.ba.best.com/pub/pjl/software/txt2pdbdoc-1.1.tar.gz">txt2pdbdoc</a>
+or the source to <a href="http://web.archive.org/web/20040616202956/http://www.pyrite.org/">Pyrite</a>. </p>
+
+<p> The output of the compression algorithm is a stream of bytes, described
+here with the action taken by the decompressor when they are encountered: </p><p>
+
+<table class="alt">
+<tbody><tr class="titlealt"><td colspan="2">Compression Byte Codes</td></tr>
+<tr><td>0x01-0x09</td><td>Copy the following N bytes verbatim</td></tr>
+<tr><td>0x0a-0x7f</td><td>Pass through as-is</td></tr>
+<tr><td>0x80-0xbf</td><td>Copy a sequence from a previous part of the block</td></tr>
+<tr><td>0xc0-0xff</td><td>Insert a space followed by N xor 0x80</td></tr>
+</tbody></table>
+
+</p><p> When a copy-sequence byte code is encountered, it is used as the
+high byte of a two byte quantity, along with the next byte in the data
+(resulting in a value from 0x8000-0xbfff).  This value is then ANDed
+with 0x3fff, resulting in a value from 0x0000 to 0x3fff.  It is
+further subdivided into an offset (the upper 11 bits, which are
+shifted down appropriately) and a length (the lower 3 bits).  The
+actual data in the output is located by subtracting the offset from
+the current position in the decompressed data; the number of bytes
+copied is equal to the length plus 3. </p> 
+
+<h2>Bookmark Records</h2>
+
+<p> Following the text records is an optional series of bookmark
+records.  Each bookmark occupies a single record, and they are usually
+presented by the reader in the same order they appear in the database.
+The format of a bookmark record is rather simple: </p>
+
+<table class="alt">
+<tbody><tr><td>name</td><td>16 bytes</td><td>bookmark name (up to 15 characters, null terminated)</td></tr>
+<tr><td>position</td><td>4</td><td>bookmark position, from beginning of text</td></tr>
+</tbody></table>
+
+<p> Note that the bookmark name field is always 16 bytes wide, even if the
+name is shorter, and that the position is in actual text bytes before
+compression. </p>
+
+<h2>Common Conventions</h2>
+
+<h3>Bookmark Autoscan</h3>
+
+<p> Because most Doc creation programs do not add bookmark records to
+their output, most Doc readers support an alternative method for
+authors to specify bookmark locations in a document.  The reader scans
+the document the first time it is opened, looking for a specified
+string at the start of lines.  Each time it is found, the reader adds
+a bookmark using the text on the rest of the line.  By convention, the
+text to scan for is placed on the last line of the document,
+surrounded by angle brackets (&lt; and &gt;). </p>
+
+<h2>TealDoc-Specific Extensions</h2>
+
+<p> The current TealDoc extensions are implemented by the use of HTML-like
+tags embedded in the text of the document.  Although TealDoc tags look like
+HTML, TealDoc's parser is not as robust as that of a desktop web browser;
+the following limitations have been observed in practice: </p>
+
+<ul>
+  <li> Tags, attributes, and keyword values must be in all upper case
+  </li><li> Each tag must appear alone on a single line; attempting to embed a
+       tag in the middle of a line of text will cause unpredictable results.
+  </li><li> Text attribute values should be surrounded by double quotes; keyword
+       and numeric values should not be quoted.
+</li></ul>
+
+<h2>Other Extensions</h2>
+
+<p> Besides TealDoc, other Doc readers also extend the standard e-text
+database format.  Some of these extensions will be more fully documented
+later; for the time being, this section contains a few notes
+in the hopes that future developers will be able to avoid compatibility
+problems.  Please note that the notes in this section should not be considered
+authoritative or complete; if you are developing Doc software, you should
+investigate this stuff for yourself. </p>
+
+<h3>QED Extensions</h3>
+
+<p> <a href="http://web.archive.org/web/20040616202956/http://www.visionary2000.com/qed/">QED</a>, the Doc editor from
+Visionary 2000, adds an appinfo block, simultaneously marking the document
+with its version number (in the database header). </p>
+
+<h3>RichReader Extensions</h3>
+
+<p> <a href="http://web.archive.org/web/20040616202956/http://www.erols.com/arenakm/palm/">RichReader</a>, the
+rich text document reader by Michael Arena, supports formatting
+control codes (font changes, indentation, etc.) embedded in the
+document text.  When viewed on another reader, RichReader documents may
+appear to contain "garbage" characters, since many of the formatting
+codes use non-printable or extended ASCII characters. </p>
+
+<h3>LinkDoc Extensions</h3>
+
+<p> <a href="http://web.archive.org/web/20040616202956/http://www.mobilegeneration.com/">Mobile LinkDoc</a>, a
+reader from Mobile Generation Software, stores links between documents
+by adding extended bookmark records to the document being linked from. </p>
+
+<h3>Extensions Which Do Not Affect the Doc Format</h3>
+
+<p> A number of readers (nearly all of them, in fact) store additional
+information in databases separate from the documents themselves,
+leaving the documents unaltered.  For example, category information is
+normally stored externally.  These product-specific databases will not,
+at the present time, be documented here, because they do not affect the
+document format itself. </p>
+</div>
+<div id="sitebottom">
+Copyright 2002 Rob Tillotson / updated (insert date here)
+</div>
+
+</body></html>

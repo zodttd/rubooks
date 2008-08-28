@@ -1,0 +1,40 @@
+// COLEL TEST
+// NSRange range	= [self ...];
+// CGRect rect	= [self rectForSelection:range]; 
+
+
+  CGRect rect_A = [self visibleTextRect];
+  CGRect rect_B = [self visibleRect];
+  CGPoint point;
+          point.x = 0;
+          point.y = 0;
+
+NSRange range;
+
+ [self scrollToMakeCaretVisible:YES];
+ [self setSelectionWithPoint:rect_B.origin];
+ [self scrollToMakeCaretVisible:YES];
+
+ [self setScrollingEnabled:YES];
+ [self ensureSelection];
+
+
+/*
+  range.location = 2147483647;
+  range.length = 0;
+  [self setSelectionRange:range];
+
+ range = [self selectionRange];
+NSLog(@"selected range: %d,%d",range.location, range.length);
+*/
+/*
+ range.location = 0;
+ range.length = 0;
+  
+[self setSelectionRange:range];
+
+
+	NSLog(@"Rect A: %f, %f / %f, %f", rect_A.origin.x,rect_A.origin.y,rect_A.size.width,rect_A.size.height);
+	NSLog(@"Rect B: %f, %f / %f, %f", rect_B.origin.x,rect_B.origin.y,rect_B.size.width,rect_B.size.height);
+
+*/

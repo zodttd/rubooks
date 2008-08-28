@@ -1,0 +1,1 @@
+NSMutableString*		decodePalmDoc( FILE *fin );

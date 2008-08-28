@@ -1,0 +1,66 @@
+"window.toc.title" = "Table of Contents";
+"window.font.title" = "글꼴";
+"window.font.subtitle" = "글꼴들";
+"window.encoding.title" = "문자 인코딩";
+"window.encoding.subtitle" = "사용 가능한 인코딩";
+"window.default_path_reset.title" = "경로 재설정";
+"window.about.title" = "ruBooks에 대하여";
+"window.preferences.title" = "선택사항";
+
+"button.back" = "뒤로";
+"button.about" = "대하여";
+"button.done" = "마침";
+"button.donate" = "기부하기";
+"button.ok" = "확인";
+"button.mark_folder_as_unread" = "현재 폴더를 새 책으로 표기";
+"button.mark_all_as_unread" = "모든 책을 새 것으로 표기";
+"button.coming_soon" = "Coming Soon";
+
+"preference.font" = "글꼴";
+"preference.font_size" = "글꼴 크기";
+"preference.night_mode" = "야간 모드";
+"preference.keep_line_on_scroll" = "스크롤 시 줄 유지";
+"preference.volume_buttons_scroll" = "볼륨 단추 스크롤";
+"preference.split_automatically" = "자동적인 분할";
+"preference.auto_scroll_speed" = "자동스크롤 속도";
+"preference.auto_hide.navigation_bar" = "내비게이션 바";
+"preference.auto_hide.toolbar" = "하단 툴바";
+"preference.toolbar.chapter_navigation" = "장 내비게이션";
+"preference.toolbar.page_navigation" = "쪽 내비게이션";
+"preference.toolbar.left_handed" = "왼손 사용자";
+"preference.toolbar.inverse_navigation" = "내비게이션을 뒤집기";
+"preference.toolbar.enlarge_tap_zones" = "보다큰 탭 영역";
+"preference.encoding.automatic" = "Automatic";
+"preference.encoding" = "문자 인코딩";
+"preference.import.smart_conversion" = "'Smart' 컨버전";
+"preference.import.render_html_tables" = "HTML 테이블 구현";
+"preference.import.chapters" = "장";
+"preference.scroll_speed.slow" = "느리게";
+"preference.scroll_speed.fast" = "빠르게";
+"preference.scroll_speed.instant" = "즉시";
+
+
+"preference.section.text_display" = "문자 표시";
+"preference.section.auto_hide" = "자동숨김";
+"preference.section.toolbar_options" = "툴바 부가항목";
+"preference.section.file_import" = "파일 임포트";
+"preference.section.scroll_speed" = "탭스크롤 속도";
+"preference.section.unread_marks" = "새 책";
+
+"message.about" = "ruBooks version %@,\nby Sergey Makarov.\n\n Based on Books.app by Zachary Brewster-Geisz, Chris Born, Benoit Cerrina, and Zachary Bedell.\n\nhttp://colel.info/rubooks";
+"message.encoding_not_recognized" = "문자 인코딩을 찾을 수 없었습니다. 선택사항에서 기본 인코딩을 바꿔보세요.";
+"message.encoding_incorrent" = "정확치 않은 문자 인코딩입니다. 선택사항에서 문자 인코딩 설정을 바꿔보세요.";
+"message.failed_unzip" = "압축해제 실패";
+"message.default_path_reset" = "마지막으로 방문한 경로는 %@입니다.\n해당 경로에서 기본 경로로 재설정합니다.";
+"message.no_chapters_found" = "장을 찾을 수 없습니다.";
+
+
+"not translated text below" = "*************************************************";
+
+"window.colors.title" = "색깔";
+
+"preference.colors" =  "색깔";
+"preference.colors.section.text_day" = "문자 / 주간";
+"preference.colors.section.background_day" = "배경 / 주간";
+"preference.colors.section.text_night" = "문자 / 야간";
+"preference.colors.section.background_night" = "배경 / 야간";
